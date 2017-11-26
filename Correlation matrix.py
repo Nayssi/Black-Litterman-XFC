@@ -1,5 +1,6 @@
 import pandas as pd
 
+#to read on your computer, change the address#
 jd=pd.read_csv("C:/Users/drh/Desktop/XFC/jd.csv")
 baba=pd.read_csv("C:/Users/drh/Desktop/XFC/baba.csv")
 ttwo=pd.read_csv("C:/Users/drh/Desktop/XFC/ttwo.csv")
