@@ -6,17 +6,17 @@ from scipy.optimize import minimize
 corr_matrix=pd.read_csv("C:/Users/drh/Desktop/XFC/corr_matrix.csv")
 daily_ret=pd.read_csv("C:/Users/drh/Desktop/XFC/daily_return.csv")
 
+#Etat initial du portefeuille
+N=daily_ret.shape[1] 
+w_initial=np.zeros(N)
+cash=80000
+
 #from correlation matrix to covariance matrix 
 daily_std=daily_ret.std()
 cov_matrix=corr_matrix.copy()
 for i in range(N):
     for j in range(N):
         cov_matrix.iloc[i][j]=cov_matrix.iloc[i][j]*daily_std[i]*daily_std[j]
-
-#Etat initial du portefeuille
-N=daily_ret.shape[1] 
-w_initial=np.zeros(N)
-cash=80000
 
 #Paramètres de l'optimisation
 lambda_c=0.1
