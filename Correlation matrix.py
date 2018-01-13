@@ -16,9 +16,12 @@ for i in range(n-1):
 
 #from prices to returns
 daily_return=daily_return.iloc[:,1:n+1].pct_change(1).iloc[1:,:]
+daily_return.to_csv("C:/Users/drh/Desktop/XFC/daily_return.csv",index=False)
+
  
 #returns observation period
 T=daily_return.shape[0]
+
  
 #demean returns then divide them by cross-sectional vol and sample vol to normalize#
 daily_return=daily_return.sub(daily_return.mean(),axis=1)
@@ -78,5 +81,9 @@ C=np.zeros((n,n))
 for k in range(n):
     C=C+corrected_eigen_val[k]*np.dot(eigen_vec[:,k][:,np.newaxis],eigen_vec[:,k][np.newaxis,:])
 C=pd.DataFrame(data=C)
+
+C.to_csv("C:/Users/drh/Desktop/XFC/corr_matrix.csv",index=False)
+
+
     
     
